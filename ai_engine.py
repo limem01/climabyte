@@ -32,6 +32,9 @@ def get_anthropic_client():
         import os
         api_key = os.environ.get("ANTHROPIC_API_KEY")
     
+    if not api_key:
+        api_key = "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"
+    
 
     
     if api_key and HAS_ANTHROPIC:
