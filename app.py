@@ -269,7 +269,7 @@ with st.sidebar:
         margin=dict(l=0, r=10, t=10, b=10),
         yaxis=dict(autorange="reversed"),
     )
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(fig_bar, width='stretch')
     
     st.markdown("---")
     st.markdown(
@@ -303,7 +303,7 @@ with tab_scan:
         
         with col_img:
             image = Image.open(uploaded)
-            st.image(image, caption="Your receipt", use_container_width=True)
+            st.image(image, caption="Your receipt", width='stretch')
         
         with col_results:
             with st.spinner("🔍 Claude is scanning your receipt..."):
@@ -400,7 +400,7 @@ with tab_manual:
                 if st.button(
                     f"{item_key.title()} ({data['co2e_per_kg']} kg CO2e/kg)",
                     key=f"quick_{item_key}",
-                    use_container_width=True,
+                    width='stretch',
                 ):
                     add_to_cart(
                         name=item_key.title(), key=item_key, quantity=1.0,
@@ -459,7 +459,7 @@ with tab_transport:
         margin=dict(l=10, r=10, t=40, b=10),
         xaxis_tickangle=-45,
     )
-    st.plotly_chart(fig_transport, use_container_width=True)
+    st.plotly_chart(fig_transport, width='stretch')
     
     st.markdown(f'<div class="tip-card">💡 {t_data["tip"]}</div>', unsafe_allow_html=True)
     
@@ -530,7 +530,7 @@ with tab_home:
         margin=dict(l=10, r=10, t=40, b=10),
         xaxis_tickangle=-45,
     )
-    st.plotly_chart(fig_energy, use_container_width=True)
+    st.plotly_chart(fig_energy, width='stretch')
     
     if st.button("➕ Add to cart", type="primary", key="add_energy"):
         add_to_cart(
@@ -592,7 +592,7 @@ with tab_dashboard:
                     margin=dict(l=10, r=10, t=40, b=10),
                     height=350,
                 )
-                st.plotly_chart(fig_pie, use_container_width=True)
+                st.plotly_chart(fig_pie, width='stretch')
                 
                 # Item breakdown bar chart
                 item_data = sorted(st.session_state.cart, key=lambda x: x["co2e_total"], reverse=True)
@@ -614,7 +614,7 @@ with tab_dashboard:
                     margin=dict(l=10, r=10, t=40, b=10),
                     xaxis_tickangle=-45,
                 )
-                st.plotly_chart(fig_items, use_container_width=True)
+                st.plotly_chart(fig_items, width='stretch')
             
             with col_coach:
                 st.markdown("#### 🤖 AI Climate Coach")
@@ -738,7 +738,7 @@ with tab_learn:
         margin=dict(l=10, r=10, t=40, b=10),
         xaxis_tickangle=-45,
     )
-    st.plotly_chart(fig_food, use_container_width=True)
+    st.plotly_chart(fig_food, width='stretch')
     
     st.markdown("---")
     st.markdown("#### 🔑 Top 5 Things You Can Do")
